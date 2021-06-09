@@ -21,11 +21,9 @@ popd
 
 rustup default xtensa
 
-# TODO: Add llvm-project built for x64 - export PATH to bin
-
-wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-apple-darwin/llvm-patch-0.1.x86_64-apple-darwin.tar.gz
-tar xzf llvm-patch-0.1.x86_64-apple-darwin.tar.gz
-export PATH="`pwd`/llvm-patch/bin/:$PATH"
+wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-apple-darwin/xtensa-esp32-elf-llvm11_0_0-x86_64-apple-darwin.tar.xz
+tar xf xtensa-esp32-elf-llvm11_0_0-x86_64-apple-darwin.tar.xz
+export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 
 wget https://dl.espressif.com/dl/idf-rust/rust-esp32-example-0.2.tar.gz
 tar xvzf rust-esp32-example-0.2.tar.gz
@@ -34,3 +32,4 @@ cargo build --release
 cd ..
 idf.py build
 ```
+
