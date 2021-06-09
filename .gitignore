@@ -1,0 +1,10 @@
+.vscode/
+build/
+target/
+
+sdkconfig.old
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb

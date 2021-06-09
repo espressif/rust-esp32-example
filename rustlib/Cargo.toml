@@ -1,0 +1,28 @@
+[package]
+name = "rustlib"
+version = "0.1.0"
+authors = ["Espressif Systems CO LTD", "June Life Inc"]
+edition = "2018"
+
+[lib]
+crate-type = ["staticlib"]
+#crate-type = ["rlib", "staticlib"]
+
+
+[build-dependencies]
+bindgen = "0.58"
+
+[profile.dev]
+# Optimization level 1 is similar to "g" in gcc/clang, although for some reason
+# Cargo doesn't support that flag.
+#opt-level = 1
+opt-level = "s"
+
+[profile.release]
+debug = true
+opt-level = "z"
+#debug = true
+#lto = true
+#opt-level = "z"
+#codegen-units = 1
+#panic = "abort"
