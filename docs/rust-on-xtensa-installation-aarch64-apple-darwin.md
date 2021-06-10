@@ -16,20 +16,18 @@ popd
 wget https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/rust-src-1.50.0-dev.tar.xz
 tar xvf rust-src-1.50.0-dev.tar.xz
 pushd rust-src-1.50.0-dev
-./install.sh --destdir=~/.rustup/toolchains/xtensa --prefix="" --without=rust-docs
+./install.sh --destdir=~/.rustup/toolchains/xtensa --prefix=""
 popd
 
 rustup default xtensa
 
-# TODO: Add llvm-project built for M1 - export PATH to bin
-
-wget https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/llvm-patch-0.1.aarch64-apple-darwin.tar.gz
-tar xzf llvm-patch-0.1.aarch64-apple-darwin.tar.gz
+wget https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/xtensa-esp32-elf-llvm11_0_0-aarch64-apple-darwin.tar.xz
+tar xf xtensa-esp32-elf-llvm11_0_0-aarch64-apple-darwin.tar.xz
 export PATH="`pwd`/llvm-patch/bin/:$PATH"
 
-wget https://dl.espressif.com/dl/idf-rust/rust-esp32-example-0.2.tar.gz
-tar xvzf rust-esp32-example-0.2.tar.gz
-cd rust-esp32-example/rustlib
+wget https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
+unzip main.zip
+cd rust-esp32-example-main/rustlib
 cargo build --release
 cd ..
 idf.py build
