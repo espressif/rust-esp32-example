@@ -23,7 +23,7 @@ rustup default xtensa
 
 wget https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/xtensa-esp32-elf-llvm11_0_0-aarch64-apple-darwin.tar.xz
 tar xf xtensa-esp32-elf-llvm11_0_0-aarch64-apple-darwin.tar.xz
-export PATH="`pwd`/llvm-patch/bin/:$PATH"
+export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 
 wget https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
 unzip main.zip
