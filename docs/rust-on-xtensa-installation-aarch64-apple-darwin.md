@@ -1,6 +1,10 @@
-# Rust on Xtensa Installation for macOS arm64
+# Rust on Xtensa Installation for macOS M1
 
-Tested OS: macOS Big Sur arm64
+Tested OS: macOS Big Sur M1
+
+## Prerequisites
+
+- rustup - https://rustup.rs/
 
 ## Commands
 
