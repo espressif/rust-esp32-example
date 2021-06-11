@@ -3,6 +3,7 @@ build/
 target/
 
 sdkconfig.old
+sdkconfig
 debug/
 target/
 Cargo.lock
