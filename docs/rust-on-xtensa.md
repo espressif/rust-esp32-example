@@ -2,7 +2,25 @@
 
 ## Quick start
 
-The installation process of ready to use custom build of Rust and LLVM is described here: https://dl.espressif.com/dl/idf-rust/
+The installation process of ready to use custom build of Rust and LLVM is described here: 
+
+* [Linux Ubuntu x64/Mint x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu.md)
+* [macOS Big Sur x64](rust-on-xtensa-installation-x86_64-apple-darwin.md)
+* [macOS Big Sur arm64](rust-on-xtensa-installation-aarch64-apple-darwin.md)
+* [Windows 10 x64](rust-on-xtensa-installation-x86_64-pc-windows-msvc.md)
+
+Make sure to install Rust toolchain nightly:
+
+`rustup toolchain install nightly`
+
+Missing nightly toolchain might result in following error:
+
+```
+error[E0463]: can't find crate for `std`
+  |
+  = note: the `xtensa-esp32-none-elf` target may not be installed
+```
+
 
 Following text describes the build process when building LLVM and Rust from the scratch.
 
