@@ -31,11 +31,9 @@ wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-apple-darwin/xtensa-esp32-
 tar xf xtensa-esp32-elf-llvm11_0_0-x86_64-apple-darwin.tar.xz
 export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 
-wget https://dl.espressif.com/dl/idf-rust/rust-esp32-example-0.2.tar.gz
-tar xvzf rust-esp32-example-0.2.tar.gz
-cd rust-esp32-example/rustlib
-cargo build --release
-cd ..
+wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
+unzip main.zip
+cd rust-esp32-example-main
 idf.py build
 ```
 

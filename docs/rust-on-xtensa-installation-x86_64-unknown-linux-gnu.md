@@ -39,11 +39,8 @@ wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/llvm-pat
 tar xzf llvm-patch-0.1.x86_64-unknown-linux-gnu.tar.gz
 export PATH="`pwd`/llvm-patch/bin/:$PATH"
 
-wget https://dl.espressif.com/dl/idf-rust/rust-esp32-example-0.2.tar.gz
-tar xvzf rust-esp32-example-0.2.tar.gz
-cd rust-esp32-example/rustlib
-cargo build --release
-cd ..
+wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
+unzip main.zip
+cd rust-esp32-example-main
 idf.py build
 ```
-

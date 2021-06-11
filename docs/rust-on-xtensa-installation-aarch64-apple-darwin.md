@@ -33,9 +33,7 @@ export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 
 wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
 unzip main.zip
-cd rust-esp32-example-main/rustlib
-cargo build --release
-cd ..
+cd rust-esp32-example-main
 idf.py build
 ```
 

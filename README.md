@@ -20,50 +20,6 @@ Install the RISCV target for Rust:
 rustup target add riscv32i-unknown-none-elf
 ```
 
-## Build Rust library
-
-This will eventually be folded into the main CMake build, but for now, build the library separately.
-
-### ESP32 or ESP32-S2
-
-To build the Rust library, run:
-
-```sh
-cd rustlib
-xargo build --release
-cd ..
-```
-
-Build with manual configuration of the target:
-
-```sh
-export RUSTC=/usr/local/xtensa/rust/bin/rustc
-export XARGO_RUST_SRC=/usr/local/xtensa/rust/library
-cd rustlib
-xargo build --release --target=xtensa-esp32-none-elf
-cd ..
-```
-
-### ESP32-C3
-
-To build the Rust library, run:
-
-```sh
-cd rustlib
-cargo build --release
-cd ..
-```
-
-Build with manual configuration of the target:
-
-```sh
-unset RUSTC
-unset XARGO_RUST_SRC
-cd rustlib
-cargo build --release --target=riscv32i-unknown-none-elf
-cd ..
-```
-
 ## Configure
 
 First ensure that the environment variables for the ESP32 SDK are properly set up. If you have followed the instructions in the Getting Started guide, activate the environment with the `get_idf` alias:
@@ -102,6 +58,8 @@ Build the project by running:
 ```sh
 idf.py build
 ```
+
+This also runs Cargo internally, building a static library out of Rust code.
 
 ## Flash
 
