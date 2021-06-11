@@ -9,6 +9,16 @@ The installation process of ready to use custom build of Rust and LLVM is descri
 * [macOS Big Sur arm64](rust-on-xtensa-installation-aarch64-apple-darwin.md)
 * [Windows 10 x64](rust-on-xtensa-installation-x86_64-pc-windows-msvc.md)
 
+Make sure to install Rust toolchain nightly, otherwise resolving of std crate might fail with following error message:
+
+```
+error[E0463]: can't find crate for `std`
+  |
+  = note: the `xtensa-esp32-none-elf` target may not be installed
+```
+
+`rustup toolchain install nightly`
+
 Following text describes the build process when building LLVM and Rust from the scratch.
 
 ## Using Rust for ESP32 Development

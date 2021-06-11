@@ -4,11 +4,17 @@ Tested OS: Ubuntu 20 x64, Mint x64
 
 Limitation: Does not work with Ubuntu 18 Bionic - GLIBC problem in cargo: `/lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found.`
 
+## Prerequisites
+
+- rustup - installed with nightly toolchain - https://rustup.rs/
 
 ## Commands
 
 ```
 sudo apt install gcc wget xz-utils
+
+rustup toolchain install nightly
+
 mkdir -p ~/.rustup/toolchains/xtensa
 
 wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/rust-1.50.0-dev-x86_64-unknown-linux-gnu.tar.xz

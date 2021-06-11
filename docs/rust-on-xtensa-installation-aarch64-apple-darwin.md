@@ -9,6 +9,8 @@ Tested OS: macOS Big Sur M1
 ## Commands
 
 ```
+rustup toolchain install nightly
+
 mkdir -p ~/.rustup/toolchains/xtensa
 
 wget --continue https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/rust-1.50.0-dev-aarch64-apple-darwin.tar.xz

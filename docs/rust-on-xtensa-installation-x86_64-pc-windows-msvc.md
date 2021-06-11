@@ -5,13 +5,15 @@ Tested OS: Windows 10 x64
 ## Prerequisites
 
 - Visual Studio - installed with option Desktop development with C++
-- rustup - https://rustup.rs/
+- rustup - installed with nightly toolchain - https://rustup.rs/
 - Chocolatey - https://chocolatey.org/
 
 ## Commands for PowerShell
 
 ```
 choco install 7zip
+
+rustup toolchain install nightly
 
 mkdir -p ~/.rustup/toolchains/xtensa
 
