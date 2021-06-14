@@ -48,8 +48,6 @@ $env:PATH="${ClangPatchPath};$env:PATH"
 
 Invoke-WebRequest https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip -OutFile rust-esp32-example.zip
 7z x rust-esp32-example.zip
-cd rust-esp32-example-main/rustlib
-cargo build --release
-cd ..
+cd rust-esp32-example-main
 idf.py build
 ```
