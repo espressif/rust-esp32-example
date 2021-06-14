@@ -8,9 +8,11 @@ edition = "2018"
 crate-type = ["staticlib"]
 #crate-type = ["rlib", "staticlib"]
 
-
 [build-dependencies]
 bindgen = "0.58"
+
+[features]
+std = []
 
 [profile.dev]
 # Optimization level 1 is similar to "g" in gcc/clang, although for some reason

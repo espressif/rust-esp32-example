@@ -1,8 +1,12 @@
-// #![no_std]
+#![cfg_attr(not(feature = "std"), no_std)]
 
+#[cfg(not(feature = "std"))]
 use core::panic::PanicInfo;
 
-pub mod ffi {
+/// Create aliases for FFI types for esp32c3, which doesn't have std.
+#[cfg(not(feature = "std"))]
+mod ffi {
+    #![allow(dead_code)]
     #![allow(non_upper_case_globals)]
     #![allow(non_camel_case_types)]
     #![allow(non_snake_case)]
@@ -15,28 +19,20 @@ pub mod sys {
     #![allow(non_upper_case_globals)]
     #![allow(non_camel_case_types)]
     #![allow(non_snake_case)]
-
-    use crate::ffi;
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
-use crate::sys::*;
-
-
-// #[panic_handler]
-// fn panic(_info: &PanicInfo) -> ! {
-//     loop {}
-// }
 
 #[no_mangle]
 pub extern "C" fn add_in_rust(x: i32, y: i32) -> i32 {
-
-    extern "C" {
-        fn validate_param_in_c(param: i32, value: i32) -> i32;
-    }
-
     unsafe {
-        validate_param_in_c(0, x);
-        validate_param_in_c(2, y);
+        sys::validate_param_in_c(0, x);
+        sys::validate_param_in_c(2, y);
     }
     x + y
+}
+
+#[cfg(not(feature = "std"))]
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> ! {
+    loop {}
 }
