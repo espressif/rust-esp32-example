@@ -4,9 +4,11 @@ idf_component_register(SRCS "main.c"
 set(CARGO_BUILD_TYPE "release")
 set(CARGO_BUILD_ARG "--release")
 if(CONFIG_IDF_TARGET_ARCH_RISCV)
-    set(CARGO_TARGET "riscv32i-unknown-elf")
+    set(CARGO_TARGET "riscv32i-unknown-none-elf")
+    set(CARGO_FEATURES_ARG "")
 elseif(CONFIG_IDF_TARGET_ARCH_XTENSA)
-    set(CARGO_TARGET "xtensa-${CONFIG_IDF_TARGET}-none-elf")
+    set(CARGO_TARGET "xtensa-esp32-none-elf")
+    set(CARGO_FEATURES_ARG "--features=std")
 endif()
 
 set(RUST_PROJECT_DIR "${CMAKE_CURRENT_LIST_DIR}/../rustlib")
@@ -19,7 +21,7 @@ ExternalProject_Add(
     BUILD_COMMAND ${CMAKE_COMMAND} -E env
         CARGO_BUILD_TARGET=${CARGO_TARGET}
         CARGO_BUILD_TARGET_DIR=${RUST_BUILD_DIR}
-        cargo build ${CARGO_BUILD_ARG}
+        cargo build ${CARGO_BUILD_ARG} ${CARGO_FEATURES_ARG}
     DOWNLOAD_COMMAND ""
     CONFIGURE_COMMAND ""
     INSTALL_COMMAND ""
