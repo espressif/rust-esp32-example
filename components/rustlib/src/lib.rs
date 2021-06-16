@@ -26,7 +26,7 @@ pub mod sys {
 pub extern "C" fn add_in_rust(x: i32, y: i32) -> i32 {
     unsafe {
         sys::validate_param_in_c(0, x);
-        sys::validate_param_in_c(2, y);
+        sys::validate_param_in_c(1, y);
     }
     x + y
 }
