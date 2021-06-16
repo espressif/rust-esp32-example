@@ -17,7 +17,7 @@ fn run_cbindgen(_cargo_dir: &Path, _out_dir: &Path) {
 
 fn run_bindgen(target: &str, out_dir: &Path) {
     let mut builder = bindgen::Builder::default();
-    builder = builder.header("../main/CApi.h");
+    builder = builder.header("../clib/include/CApi.h");
     match target {
         "riscv32i-unknown-none-elf" => {
             builder = builder.clang_arg("--target=riscv32");
