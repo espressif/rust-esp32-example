@@ -1,4 +1,7 @@
-idf_component_register()
+idf_component_register(
+    SRCS "include/RustApi.h"
+    INCLUDE_DIRS "include"
+    )
 
 set(CARGO_BUILD_TYPE "release")
 set(CARGO_BUILD_ARG "--release")
