@@ -1,6 +1,7 @@
 idf_component_register(
     SRCS "include/RustApi.h"
     INCLUDE_DIRS "include"
+    PRIV_REQUIRES clib
     )
 
 set(CARGO_BUILD_TYPE "release")
@@ -34,9 +35,9 @@ ExternalProject_Add(
     DOWNLOAD_DIR "${RUST_BUILD_DIR}"
     SOURCE_DIR "${RUST_PROJECT_DIR}"
     BUILD_BYPRODUCTS "${RUST_STATIC_LIBRARY}"
+    DEPENDS idf::clib
 )
 
-add_library(rustlib_prebuilt STATIC IMPORTED GLOBAL REQUIRES idf::clib)
-add_dependencies(rustlib_prebuilt idf::clib rustlib_project)
-
-set_target_properties(rustlib_prebuilt PROPERTIES IMPORTED_LOCATION "${RUST_STATIC_LIBRARY}")
+add_prebuilt_library(rustlib_prebuilt "${RUST_STATIC_LIBRARY}" PRIV_REQUIRES clib)
+add_dependencies(rustlib_prebuilt rustlib_project)
+target_link_libraries(${COMPONENT_LIB} PRIVATE rustlib_prebuilt)
