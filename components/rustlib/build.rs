@@ -13,17 +13,24 @@ fn main() {
 }
 
 fn run_cbindgen(cargo_dir: &Path, target_dir: &Path) {
+    let out = target_dir.join("RustApi.h");
+
     cbindgen::Builder::new()
         .with_crate(cargo_dir)
         .with_language(cbindgen::Language::C)
         .generate()
         .expect("Unable to generate bindings")
-        .write_to_file(target_dir.join("RustApi.h"));
+        .write_to_file(&out);
+
+    println!("cargo:rerun-if-changed={}", out.display());
 }
 
 fn run_bindgen(target: &str, out_dir: &Path) {
+    let header = "../clib/include/CApi.h";
+    let out = out_dir.join("bindings.rs");
+
     let mut builder = bindgen::Builder::default();
-    builder = builder.header("../clib/include/CApi.h");
+    builder = builder.header(header);
     match target {
         "riscv32i-unknown-none-elf" => {
             builder = builder.clang_arg("--target=riscv32");
@@ -42,6 +49,9 @@ fn run_bindgen(target: &str, out_dir: &Path) {
 
     let bindings = builder.generate().expect("Couldn't generate bindings!");
     bindings
-        .write_to_file(out_dir.join("bindings.rs"))
+        .write_to_file(&out)
         .expect("Couldn't save bindings!");
+
+    println!("cargo:rerun-if-changed={}", header);
+    println!("cargo:rerun-if-changed={}", out.display());
 }
