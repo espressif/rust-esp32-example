@@ -2,9 +2,10 @@
 
 ## Quick start
 
-The installation process of ready to use custom build of Rust and LLVM is described here: 
+The installation process of ready to use custom build of Rust and LLVM is described here:
 
-* [Linux Ubuntu x64/Mint x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu.md)
+* [Linux Ubuntu 20 x64/Mint 20 x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu.md)
+* [Linux Ubuntu 18 x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu-bionic.md)
 * [macOS Big Sur x64](rust-on-xtensa-installation-x86_64-apple-darwin.md)
 * [macOS Big Sur arm64](rust-on-xtensa-installation-aarch64-apple-darwin.md)
 * [Windows 10 x64](rust-on-xtensa-installation-x86_64-pc-windows-msvc.md)
