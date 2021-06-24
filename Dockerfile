@@ -8,8 +8,8 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- --profile minimal --default-tool
     #&& mkdir -p ~/.rustup/toolchains/xtensa
 WORKDIR /opt
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/rust-1.50.0-dev-x86_64-unknown-linux-gnu.tar.xz \
-    && tar xvf rust-1.50.0-dev-x86_64-unknown-linux-gnu.tar.xz
+RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz \
+    && tar xvf rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz
 RUN cd rust-1.50.0-dev-x86_64-unknown-linux-gnu \
     && ./install.sh --destdir=/opt/xtensa --prefix="" --without=rust-docs \
     && cd -
