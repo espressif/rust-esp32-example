@@ -26,8 +26,8 @@ RUN rustup toolchain link xtensa /opt/xtensa \
 RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz \
     && tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/llvm-patch-0.1.x86_64-unknown-linux-gnu.tar.gz \
-    && tar xzf llvm-patch-0.1.x86_64-unknown-linux-gnu.tar.gz
+RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/llvm-patch-0.1.x86_64-unknown-linux-gnu-bionic.tar.gz \
+    && tar xzf llvm-patch-0.1.x86_64-unknown-linux-gnu-bionic.tar.gz
 
 RUN wget -q https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip \
     && unzip main.zip
