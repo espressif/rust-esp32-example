@@ -13,7 +13,6 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 
-#include "CApi.h"
 #include "RustApi.h"
 
 void app_main(void)
@@ -48,17 +47,4 @@ void app_main(void)
     printf("Restarting now.\n");
     fflush(stdout);
     esp_restart();
-}
-
-// bool validate_param_in_c(const char *param, int value)
-// {
-//     printf("C validated %s = %d\n", param, value);
-//     return true;
-// }
-
-
-bool validate_param_in_c(int param, int value)
-{
-    printf("C validated %d = %d\n", param, value);
-    return true;
 }
