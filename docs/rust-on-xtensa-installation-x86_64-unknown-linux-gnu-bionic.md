@@ -1,8 +1,6 @@
 # Rust on Xtensa Installation for Linux x64
 
-Tested OS: Ubuntu 20 x64, Mint 20 x64
-
-Ubuntu 18: Please follow instructions for [Linux Ubuntu 18 x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu-bionic.md) to avoid problem with  `GLIBC_2.29' not found.
+Tested OS: Ubuntu 18 x64
 
 ## Prerequisites
 
@@ -17,8 +15,8 @@ rustup toolchain install nightly
 
 mkdir -p ~/.rustup/toolchains/xtensa
 
-wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/rust-1.50.0-dev-x86_64-unknown-linux-gnu.tar.xz
-tar xvf rust-1.50.0-dev-x86_64-unknown-linux-gnu.tar.xz
+wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz
+tar xvf rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz
 pushd rust-1.50.0-dev-x86_64-unknown-linux-gnu
 ./install.sh --destdir=~/.rustup/toolchains/xtensa --prefix="" --without=rust-docs
 popd

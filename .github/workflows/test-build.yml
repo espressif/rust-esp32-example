@@ -14,3 +14,12 @@ jobs:
         submodules: 'recursive'
     - name: esp-idf build
       uses: espressif/esp-idf-ci-action@rust-latest
+    - name: Archive binaries
+      run: |
+        mkdir binaries
+        cp build/*.bin build/bootloader/*.bin build/partition_table/*.bin support/esptool/* binaries/
+    - name: Archive artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: binaries
+        path: binaries
