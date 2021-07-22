@@ -36,15 +36,10 @@ popd
 
 rustup default xtensa
 
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/x86_64-pc-windows-msvc/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-win64.zip -OutFile xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-win64.zip
-7z x xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-win64.zip
+Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/x86_64-pc-windows-msvc/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip -OutFile xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
+7z x xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
 $ClangPath=Join-Path -Path (Get-Location) -ChildPath xtensa-esp32-elf-clang\bin
 $env:PATH="${ClangPath};$env:PATH"
-
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/x86_64-pc-windows-msvc/llvm-patch-0.1.x86_64-pc-windows-msvc.tar.gz -OutFile llvm-patch-0.1.x86_64-pc-windows-msvc.tar.gz
-tar xzf llvm-patch-0.1.x86_64-pc-windows-msvc.tar.gz
-$ClangPatchPath=Join-Path -Path (Get-Location) -ChildPath llvm-patch\bin
-$env:PATH="${ClangPatchPath};$env:PATH"
 
 Invoke-WebRequest https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip -OutFile rust-esp32-example.zip
 7z x rust-esp32-example.zip

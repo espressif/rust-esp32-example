@@ -29,13 +29,9 @@ popd
 
 rustup default xtensa
 
-wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz
-tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz
+wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
+tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
 export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
-
-wget https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/llvm-patch-0.1.x86_64-unknown-linux-gnu.tar.gz
-tar xzf llvm-patch-0.1.x86_64-unknown-linux-gnu.tar.gz
-export PATH="`pwd`/llvm-patch/bin/:$PATH"
 
 wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
 unzip main.zip

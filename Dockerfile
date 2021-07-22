@@ -5,7 +5,7 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV RUSTUP_HOME=/opt/rust
 ENV CARGO_HOME=/opt/cargo
-ENV PATH=/opt/cargo/bin:/opt/rust/bin:/opt/xtensa-esp32-elf-clang/bin:/opt/llvm-patch/bin:$PATH
+ENV PATH=/opt/cargo/bin:/opt/rust/bin:/opt/xtensa-esp32-elf-clang/bin:$PATH
 RUN curl https://sh.rustup.rs -sSf | bash -s -- --profile minimal --default-toolchain nightly  -y
 WORKDIR /opt
 
@@ -25,12 +25,9 @@ RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/r
     && rustup toolchain link xtensa /opt/xtensa \
     && rustup default xtensa
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz \
-    && tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz \
-    && rm xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21247-g65ed48e-linux-amd64.tar.xz \
-    && wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/llvm-patch-0.1.x86_64-unknown-linux-gnu-bionic.tar.gz \
-    && tar xzf llvm-patch-0.1.x86_64-unknown-linux-gnu-bionic.tar.gz \
-    && rm llvm-patch-0.1.x86_64-unknown-linux-gnu-bionic.tar.gz
+RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz \
+    && tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz \
+    && rm xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
 
 RUN git clone https://github.com/espressif/rust-esp32-example.git
 
