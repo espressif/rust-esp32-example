@@ -1,3 +1,4 @@
+Dockerfile
 FROM espressif/idf
 #RUN apt update \
 #    && apt install -y build-essential curl
@@ -11,16 +12,12 @@ WORKDIR /opt
 
 RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz \
     && tar xvf rust-1.50.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz \
-    && cd rust-1.50.0-dev-x86_64-unknown-linux-gnu \
-    && ./install.sh --destdir=/opt/xtensa --prefix="" --without=rust-docs \
-    && cd /opt \
+    && ./rust-1.50.0-dev-x86_64-unknown-linux-gnu/install.sh --destdir=/opt/xtensa --prefix="" --without=rust-docs \
     && rm -rf rust-1.50.0-dev-x86_64-unknown-linux-gnu*
 
 RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/rust-src-1.50.0-dev.tar.xz \
     && tar xvf rust-src-1.50.0-dev.tar.xz \
-    && cd rust-src-1.50.0-dev \
-    && ./install.sh --destdir=/opt/xtensa --prefix="" --without=rust-docs \
-    && cd /opt \
+    && ./rust-src-1.50.0-dev/install.sh --destdir=/opt/xtensa --prefix="" --without=rust-docs \
     && rm -rf rust-src-1.50.0-dev* \
     && rustup toolchain link xtensa /opt/xtensa \
     && rustup default xtensa
