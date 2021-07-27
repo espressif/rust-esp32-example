@@ -22,6 +22,9 @@ error[E0463]: can't find crate for `std`
   = note: the `xtensa-esp32-none-elf` target may not be installed
 ```
 
+Not supported architectures:
+
+* Linux arm64 - missing support in ESP-IDF - https://github.com/espressif/esp-idf/issues/6475
 
 Following text describes the build process when building LLVM and Rust from the scratch.
 
