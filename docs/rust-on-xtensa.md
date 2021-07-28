@@ -4,11 +4,15 @@
 
 The installation process of ready to use custom build of Rust and LLVM is described here:
 
-* [Linux Ubuntu 20 x64/Mint 20 x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu.md)
-* [Linux Ubuntu 18 x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu-bionic.md)
+* [Linux Ubuntu 18, Ubuntu 20 x64, Mint 20 x64, OpenSUSE Thumbleweed x64](rust-on-xtensa-installation-x86_64-unknown-linux-gnu.md)
 * [macOS Big Sur x64](rust-on-xtensa-installation-x86_64-apple-darwin.md)
 * [macOS Big Sur arm64](rust-on-xtensa-installation-aarch64-apple-darwin.md)
 * [Windows 10 x64](rust-on-xtensa-installation-x86_64-pc-windows-msvc.md)
+* Not supported: Linux arm64 - missing support in ESP-IDF - https://github.com/espressif/esp-idf/issues/6475
+
+## Troubleshooting
+
+### Can't find crate for `std`
 
 Make sure to install Rust toolchain nightly:
 
@@ -22,6 +26,27 @@ error[E0463]: can't find crate for `std`
   = note: the `xtensa-esp32-none-elf` target may not be installed
 ```
 
+### Error: use of unstable library feature 'restricted_std'
+
+Error message:
+
+```
+Compiling rustlib v0.1.0 (rust-esp32-example-main/components/rustlib)
+error[E0658]: use of unstable library feature 'restricted_std'
+  |
+  = help: add `#![feature(restricted_std)]` to the crate attributes to enable
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0658`.
+error: could not compile `rustlib`
+```
+
+Solution:
+
+Change the target to `xtensa-esp32-espidf`.
+
+## Building from the scratch
 
 Following text describes the build process when building LLVM and Rust from the scratch.
 

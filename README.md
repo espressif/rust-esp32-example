@@ -2,7 +2,7 @@
 
 An example project demonstrating integration with Rust for the ESP32-S2 and ESP32-C3 microcontrollers.
 
-This example starts a FreeRTOS task to call a function in Rust and display the results in C. 
+This example starts a FreeRTOS task to call a function in Rust and display the results in C.
 
 ## Setup
 
@@ -11,6 +11,13 @@ First, install the ESP-IDF SDK as shown in the [Get Started](https://docs.espres
 ### ESP32 and ESP32-S series
 
 To support the Xtensa instruction set, build and install custom LLVM and Rust toolchains as shown in the [Rust On Xtensa](docs/rust-on-xtensa.md) guide.
+
+Alternatively you might build the project in the container where image already contains pre-installed Rust and ESP-IDF:
+
+```
+docker run -it georgikrocks/esp-idf-rust /bin/bash
+idf.py build
+```
 
 ### ESP32-C3
 

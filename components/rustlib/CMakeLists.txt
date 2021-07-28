@@ -12,7 +12,7 @@ if(CONFIG_IDF_TARGET_ARCH_RISCV)
     set(CARGO_TARGET "riscv32i-unknown-none-elf")
     set(CARGO_FEATURES_ARG "")
 elseif(CONFIG_IDF_TARGET_ARCH_XTENSA)
-    set(CARGO_TARGET "xtensa-esp32-none-elf")
+    set(CARGO_TARGET "xtensa-esp32-espidf")
     set(CARGO_FEATURES_ARG "--features=std")
 endif()
 
