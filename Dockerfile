@@ -9,8 +9,8 @@ ENV PATH=/opt/cargo/bin:/opt/rust/bin:/opt/xtensa-esp32-elf-clang/bin:$PATH
 RUN curl https://sh.rustup.rs -sSf | bash -s -- --profile minimal --default-toolchain nightly  -y
 WORKDIR /opt
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/bionic/rust-1.53.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz \
-    && tar xvf rust-1.53.0-dev-x86_64-unknown-linux-gnu-bionic.tar.xz \
+RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/x86_64-unknown-linux-gnu/rust-1.53.0-dev-x86_64-unknown-linux-gnu.tar.xz \
+    && tar xvf rust-1.53.0-dev-x86_64-unknown-linux-gnu.tar.xz \
     && ./rust-1.53.0-dev-x86_64-unknown-linux-gnu/install.sh --destdir=/opt/esp --prefix="" --without=rust-docs \
     && rm -rf rust-1.53.0-dev-x86_64-unknown-linux-gnu*
 
