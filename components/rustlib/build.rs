@@ -37,7 +37,7 @@ fn run_bindgen(target: &str, out_dir: &Path) {
             builder = builder.use_core();
             builder = builder.ctypes_prefix("crate::ffi");
         }
-        "xtensa-esp32-none-elf" => {
+        "xtensa-esp32-espidf" => {
             // Make sure that LLVM_CONFIG_PATH has been set to point to the
             // Xtensa build of llvm-config.
             builder = builder.clang_arg("--target=xtensa-esp32-elf");
