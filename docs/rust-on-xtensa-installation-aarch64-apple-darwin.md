@@ -15,7 +15,7 @@ mkdir -p ~/.rustup/toolchains/esp
 
 wget --continue https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/rust-1.53.0-dev-aarch64-apple-darwin.tar.xz
 tar xvf rust-1.53.0-dev-aarch64-apple-darwin.tar.xz
-./rust-1.53.0-dev-aarch64-apple-darwin/install.sh --destdir=~/.rustup/toolchains/xtensa --prefix="" --without=rust-docs
+./rust-1.53.0-dev-aarch64-apple-darwin/install.sh --destdir=~/.rustup/toolchains/esp --prefix="" --without=rust-docs
 
 wget --continue https://dl.espressif.com/dl/idf-rust/dist/noarch/rust-src-1.53.0-dev.tar.xz
 tar xvf rust-src-1.53.0-dev.tar.xz
