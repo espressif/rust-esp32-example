@@ -11,15 +11,21 @@ Tested OS: macOS Big Sur M1
 ```
 rustup toolchain install nightly
 
-mkdir -p ~/.rustup/toolchains/esp
+VERSION="1.54.0-dev"
+ARCH="aarch64-apple-darwin"
+RUST_DIST="rust-${VERSION}-${ARCH}"
+RUST_SRC_DIST="rust-src-${VERSION}"
+TOOLCHAIN_DESTINATION_DIR="~/.rustup/toolchains/esp"
 
-wget --continue https://dl.espressif.com/dl/idf-rust/dist/aarch64-apple-darwin/rust-1.53.0-dev-aarch64-apple-darwin.tar.xz
-tar xvf rust-1.53.0-dev-aarch64-apple-darwin.tar.xz
-./rust-1.53.0-dev-aarch64-apple-darwin/install.sh --destdir=~/.rustup/toolchains/esp --prefix="" --without=rust-docs
+mkdir -p ${TOOLCHAIN}
 
-wget --continue https://dl.espressif.com/dl/idf-rust/dist/noarch/rust-src-1.53.0-dev.tar.xz
-tar xvf rust-src-1.53.0-dev.tar.xz
-./rust-src-1.53.0-dev/install.sh --destdir=~/.rustup/toolchains/esp --prefix=""
+wget https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/${RUST_DIST}.tar.xz
+tar xvf ${RUST_DIST}.tar.xz
+./${RUST_DIST}/install.sh --destdir=${TOOLCHAIN_DESTINATION_DIR} --prefix="" --without=rust-docs
+
+wget https://dl.espressif.com/dl/idf-rust/dist/noarch/${RUST_SRC_DIST}.tar.xz
+tar xvf ${RUST_SRC_DIST}.tar.xz
+./${RUST_SRC_DIST}/install.sh --destdir=${TOOLCHAIN_DESTINATION_DIR} --prefix="" --without=rust-docs
 
 rustup default esp
 
