@@ -19,7 +19,7 @@ RUST_DIST="rust-${VERSION}-${ARCH}"
 RUST_SRC_DIST="rust-src-${VERSION}"
 TOOLCHAIN_DESTINATION_DIR="~/.rustup/toolchains/esp"
 
-mkdir -p ${TOOLCHAIN}
+mkdir -p ${TOOLCHAIN_DESTINATION_DIR}
 
 wget https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/${RUST_DIST}.tar.xz
 tar xvf ${RUST_DIST}.tar.xz
