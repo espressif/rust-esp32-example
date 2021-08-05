@@ -15,28 +15,34 @@ choco install 7zip
 
 rustup toolchain install nightly
 
+$Version="1.54.0-dev"
+$Arch="x86_64-pc-windows-msvc"
+$RustDist="rust-${VERSION}-${ARCH}"
+$RustSrcDist="rust-src-${VERSION}"
+$ToolchainDestinationDir="~/.rustup/toolchains/esp"
+
 mkdir -p ~\.rustup\toolchains\esp
 
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/x86_64-pc-windows-msvc/rust-1.53.0-dev-x86_64-pc-windows-msvc.tar.xz -OutFile rust-1.53.0-dev-x86_64-pc-windows-msvc.tar.xz
-7z e .\rust-1.53.0-dev-x86_64-pc-windows-msvc.tar.xz
-7z x .\rust-1.53.0-dev-x86_64-pc-windows-msvc.tar
-pushd rust-1.53.0-dev-x86_64-pc-windows-msvc
+Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/${Arch}/${RustDist}.tar.xz -OutFile ${RustDist}.tar.xz
+7z e .\${RustDist}.tar.xz
+7z x .\${RustDist}.tar
+pushd ${RustDist}
 cp -Recurse .\rustc\bin ~\.rustup\toolchains\esp\
 cp -Recurse .\rustc\lib ~\.rustup\toolchains\esp\
 cp -Recurse .\rustc\share ~\.rustup\toolchains\esp\
-cp -ErrorAction SilentlyContinue -Recurse .\rust-std-x86_64-pc-windows-msvc\lib\* ~\.rustup\toolchains\esp\lib\
+cp -ErrorAction SilentlyContinue -Recurse .\rust-std-${Arch}\lib\* ~\.rustup\toolchains\esp\lib\
 popd
 
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/noarch/rust-src-1.53.0-dev.tar.xz -OutFile rust-src-1.53.0-dev.tar.xz
-7z e .\rust-src-1.53.0-dev.tar.xz
-7z x .\rust-src-1.53.0-dev.tar
-pushd rust-src-1.53.0-dev
+Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/noarch/${RustSrcDist}.tar.xz -OutFile ${RustSrcDist}
+7z e .\${RustSrcDist}.tar.xz
+7z x .\${RustSrcDist}.tar
+pushd ${RustSrcDist}
 cp -ErrorAction SilentlyContinue -Recurse .\rust-src\lib\* ~\.rustup\toolchains\esp\lib\
 popd
 
 rustup default esp
 
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/x86_64-pc-windows-msvc/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip -OutFile xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
+Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/${Arch}/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip -OutFile xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
 7z x xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
 $ClangPath=Join-Path -Path (Get-Location) -ChildPath xtensa-esp32-elf-clang\bin
 $env:PATH="${ClangPath};$env:PATH"

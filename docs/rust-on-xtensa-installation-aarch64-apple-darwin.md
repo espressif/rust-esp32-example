@@ -11,7 +11,7 @@ Tested OS: macOS Big Sur M1
 ```
 rustup toolchain install nightly
 
-VERSION="1.53.0-dev"
+VERSION="1.54.0-dev"
 ARCH="aarch64-apple-darwin"
 RUST_DIST="rust-${VERSION}-${ARCH}"
 RUST_SRC_DIST="rust-src-${VERSION}"
