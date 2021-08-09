@@ -2,7 +2,7 @@
 
 Following instructions are specific for ESP32 and ESP32-S series based on Xtensa architecture.
 
-Instructions for ESP-C series based on RISC-V architecture are described in document for [ESP32-C3](../rust-esp32-example#esp32-c3).
+Instructions for ESP-C series based on RISC-V architecture are described in document for [ESP32-C3](../README.md#esp32-c3).
 
 Tested OS: Ubuntu 18 x64, Ubuntu 20 x64, Mint 20 x64, OpenSUSE Thumbleweed
 

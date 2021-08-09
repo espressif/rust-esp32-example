@@ -1,4 +1,8 @@
-# Rust on ESP32 (Xtensa)
+# Rust on ESP32 and ESP32-S series (Xtensa)
+
+Following instructions are specific for ESP32 and ESP32-S series based on Xtensa architecture.
+
+Instructions for ESP-C series based on RISC-V architecture are described in document for [ESP32-C3](../README.md#esp32-c3).
 
 ## Quick start
 
