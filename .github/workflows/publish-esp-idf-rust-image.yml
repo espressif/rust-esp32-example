@@ -19,4 +19,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: georgikrocks/esp-idf-rust:latest
+          tags: espressif/idf-rust:latest
