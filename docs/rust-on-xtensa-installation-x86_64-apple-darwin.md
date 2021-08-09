@@ -1,14 +1,17 @@
 # Rust on Xtensa Installation for macOS x64
 
-Tested OS: macOS Big Sur x64
+Following instructions are specific for ESP32 and ESP32-S series based on Xtensa architecture.
 
+Instructions for ESP-C series based on RISC-V architecture are described in document for [ESP32-C3](../rust-esp32-example#esp32-c3).
+
+Tested OS: macOS Big Sur x64
 ## Prerequisites
 
 - rustup - installed with nightly toolchain - https://rustup.rs/
 
-## Commands
+## Installation commands
 
-```
+```sh
 rustup toolchain install nightly
 
 VERSION="1.54.0-dev"
@@ -36,6 +39,30 @@ export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
 unzip main.zip
 cd rust-esp32-example-main
-idf.py build
 ```
 
+## Select architecture for the build
+
+For the ESP32 - default (Xtensa architecture):
+
+```sh
+idf.py set-target esp32
+```
+
+For the ESP32-S2 (Xtensa architecture):
+
+```sh
+idf.py set-target esp32s2
+```
+
+For the ESP32-S3 (Xtensa architecture):
+
+```sh
+idf.py set-target esp32s3
+```
+
+## Build and flash
+
+```sh
+idf.py build flash
+```
