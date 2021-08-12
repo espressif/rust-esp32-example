@@ -1,4 +1,4 @@
-name: Publish esp-idf-rust image on DockerHub
+name: Publish idf-rust image on DockerHub
 
 on: workflow_dispatch
 
@@ -19,4 +19,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: espressif/idf-rust:latest
+          tags: espressif/idf-rust-examples:latest
