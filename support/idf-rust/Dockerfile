@@ -14,7 +14,8 @@ ARG TOOLCHAIN_DESTINATION_DIR="/opt/esp"
 RUN curl https://sh.rustup.rs -sSf | bash -s -- --profile minimal --default-toolchain nightly  -y
 WORKDIR /opt
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/${RUST_DIST}.tar.xz \
+#RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/${RUST_DIST}.tar.xz \
+RUN wget -q https://github.com/georgik/idf-rust-build/releases/download/v${VERSION}/${RUST_DIST}.tar.xz \
     && tar xvf ${RUST_DIST}.tar.xz \
     && ./${RUST_DIST}/install.sh --destdir=${TOOLCHAIN_DESTINATION_DIR} --prefix="" --without=rust-docs \
     && rm -rf ${RUST_DIST} ${RUST_DIST}.tar.xz
