@@ -1,37 +1,17 @@
-FROM espressif/idf
-#RUN apt update \
-#    && apt install -y build-essential curl
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
-ENV RUSTUP_HOME=/opt/rust
-ENV CARGO_HOME=/opt/cargo
-ENV PATH=/opt/cargo/bin:/opt/rust/bin:/opt/xtensa-esp32-elf-clang/bin:$PATH
+FROM espressif/idf-rust
 
-ARG VERSION="1.54.0-dev"
-ARG ARCH="x86_64-unknown-linux-gnu"
-ARG RUST_DIST="rust-${VERSION}-${ARCH}"
-ARG RUST_SRC_DIST="rust-src-${VERSION}"
-ARG TOOLCHAIN_DESTINATION_DIR="/opt/esp"
+# Some tools to make life with examples easier
+RUN apt update \
+    && apt install -y vim nano
 
-RUN curl https://sh.rustup.rs -sSf | bash -s -- --profile minimal --default-toolchain nightly  -y
-WORKDIR /opt
+# Dependency for Cargo first example
+RUN cargo install cargo-pio
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/${RUST_DIST}.tar.xz \
-    && tar xvf ${RUST_DIST}.tar.xz \
-    && ./${RUST_DIST}/install.sh --destdir=${TOOLCHAIN_DESTINATION_DIR} --prefix="" --without=rust-docs \
-    && rm -rf ${RUST_DIST} ${RUST_DIST}.tar.xz
+COPY support/idf-rust-examples/entrypoint.sh /opt/esp/entrypoint.sh
+COPY support/idf-rust-examples/motd /etc/motd
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/noarch/${RUST_SRC_DIST}.tar.xz \
-    && tar xvf ${RUST_SRC_DIST}.tar.xz \
-    && ./${RUST_SRC_DIST}/install.sh --destdir=${TOOLCHAIN_DESTINATION_DIR} --prefix="" --without=rust-docs \
-    && rm -rf ${RUST_SRC_DIST} ${RUST_SRC_DIST}.tar.xz \
-    && rustup toolchain link esp /opt/esp \
-    && rustup default esp
+RUN if [ ! -e /opt/rust-esp32-example ]; then git clone https://github.com/espressif/rust-esp32-example.git /opt/rust-esp32-example; fi \
+    && git clone https://github.com/ivmarkov/rust-esp32-std-hello.git /opt/rust-esp32-std-hello
 
-RUN wget -q https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz \
-    && tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz \
-    && rm xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
+WORKDIR /opt/
 
-RUN git clone https://github.com/espressif/rust-esp32-example.git
-
-WORKDIR /opt/rust-esp32-example

@@ -1,0 +1,19 @@
+==============================================================================
+=           Docker image with ESP-IDF, Rust compiler and examples            =
+=              https://github.com/espressif/rust-esp32-example               =
+==============================================================================
+
+Available examples:
+
+* "idf.py-first" approach - integration via CMake files
+  ```sh
+    cd /opt/rust-esp32-example
+    idf.py build
+  ```
+
+* "cargo-first" approach
+  ```sh
+    cd /opt/rust-esp32-std-hello
+    cargo build --release
+  ```
+
