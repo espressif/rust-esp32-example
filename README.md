@@ -15,9 +15,10 @@ To support the Xtensa instruction set, build and install custom LLVM and Rust to
 Alternatively you might build the project in the container where image already contains pre-installed Rust and ESP-IDF:
 
 ```
-docker run -it georgikrocks/esp-idf-rust /bin/bash
-idf.py build
+docker run -it espressif/idf-rust-examples
 ```
+
+Then follow instructions displayed on the screen.
 
 ### ESP32-C3
 
