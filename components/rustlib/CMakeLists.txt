@@ -9,7 +9,7 @@ idf_component_register(
 set(CARGO_BUILD_TYPE "release")
 set(CARGO_BUILD_ARG "--release")
 if(CONFIG_IDF_TARGET_ARCH_RISCV)
-    set(CARGO_TARGET "riscv32i-unknown-none-elf")
+    set(CARGO_TARGET "riscv32imc-esp-espidf")
     set(CARGO_FEATURES_ARG "")
 elseif(CONFIG_IDF_TARGET_ARCH_XTENSA)
     set(CARGO_TARGET "xtensa-esp32-espidf")

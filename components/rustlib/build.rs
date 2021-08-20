@@ -32,7 +32,7 @@ fn run_bindgen(target: &str, out_dir: &Path) {
     let mut builder = bindgen::Builder::default();
     builder = builder.header(header);
     match target {
-        "riscv32i-unknown-none-elf" => {
+        "riscv32imc-esp-espidf" => {
             builder = builder.clang_arg("--target=riscv32");
             builder = builder.use_core();
             builder = builder.ctypes_prefix("crate::ffi");
