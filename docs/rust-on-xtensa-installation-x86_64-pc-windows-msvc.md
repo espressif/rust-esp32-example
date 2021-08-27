@@ -32,8 +32,8 @@ popd
 
 rustup default esp
 
-Invoke-WebRequest https://dl.espressif.com/dl/idf-rust/dist/${Arch}/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip -OutFile xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
-7z x xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-win64.zip
+Invoke-WebRequest https://github.com/espressif/llvm-project/releases/download/esp-12.0.1-20210823/xtensa-esp32-elf-llvm12_0_1-esp-12.0.1-20210823-win64.zip -OutFile xtensa-esp32-elf-llvm12_0_1-esp-12.0.1-20210823-win64.zip
+7z x xtensa-esp32-elf-llvm12_0_1-esp-12.0.1-20210823-win64.zip
 $env:LIBCLANG_PATH=Join-Path -Path (Get-Location) -ChildPath xtensa-esp32-elf-clang\bin
 $env:PATH+=";$env:LIBCLANG_PATH"
 

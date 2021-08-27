@@ -35,8 +35,8 @@ tar xvf ${RUST_SRC_DIST}.tar.xz
 
 rustup default esp
 
-wget https://dl.espressif.com/dl/idf-rust/dist/${ARCH}/xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
-tar xf xtensa-esp32-elf-llvm11_0_0-llvmorg-11-init-21249-g36dbc8b-linux-amd64.tar.xz
+wget https://github.com/espressif/llvm-project/releases/download/esp-12.0.1-20210823/xtensa-esp32-elf-llvm12_0_1-esp-12.0.1-20210823-linux-amd64.tar.xz
+tar xf xtensa-esp32-elf-llvm12_0_1-esp-12.0.1-20210823-linux-amd64.tar.xz
 export PATH="`pwd`/xtensa-esp32-elf-clang/bin/:$PATH"
 
 wget --continue https://github.com/espressif/rust-esp32-example/archive/refs/heads/main.zip
