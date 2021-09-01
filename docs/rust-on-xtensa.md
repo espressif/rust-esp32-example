@@ -80,9 +80,9 @@ export LIBCLANG_PATH=/path/to/xtensa-esp32-elf-clang/lib/libclang.so.12
 
 (Replace the path above with the correct path on your system.)
 
-## Building from the scratch
+## Building from scratch
 
-Following text describes the build process when building LLVM and Rust from the scratch.
+Following text describes the build process when building LLVM and Rust from scratch.
 
 ## Using Rust for ESP32 Development
 
