@@ -50,6 +50,36 @@ Solution:
 
 Change the target to `xtensa-esp32-espidf`.
 
+### Build fails with panic at `libclang error`
+
+If you see the following error:
+
+```
+error: failed to run custom build command for `rustlib v0.1.0 (/home/brian/src/esp32-rust/rust-esp32-example/components/rustlib)`
+
+Caused by:
+  process didn't exit successfully: `/home/user/projects/rust-esp32-example/build/esp-idf/rustlib/target/release/build/rustlib-435225cb26b45082/build-script-build` (exit status: 101)
+  --- stdout
+  cargo:rerun-if-changed=/home/user/projects/rust-esp32-example/build/esp-idf/rustlib/target/RustApi.h
+
+  --- stderr
+  thread 'main' panicked at 'libclang error; possible causes include:
+  - Invalid flag syntax
+  - Unrecognized flags
+  - Invalid flag arguments
+  - File I/O errors
+  - Host vs. target architecture mismatch
+[...]
+```
+
+This likely means that the build script is finding the wrong `libclang.so` (or `libclang.dylib` on macOS) file (possibly from your system's global copy of clang).  To teach the build where the correct copy of libclang is, set in your environment:
+
+```
+export LIBCLANG_PATH=/path/to/xtensa-esp32-elf-clang/lib/libclang.so.12
+```
+
+(Replace the path above with the correct path on your system.)
+
 ## Building from the scratch
 
 Following text describes the build process when building LLVM and Rust from the scratch.
