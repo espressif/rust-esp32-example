@@ -8,7 +8,7 @@ Available examples:
 * "cargo-first" approach
   ```sh
     cd /opt/rust-esp32-std-hello
-    cargo build
+    cargo build --release
     espflash /dev/ttyUSB0 target/xtensa-esp32-espidf/release/rust-esp32-std-hello
     cargo pio espidf monitor -e release /dev/ttyUSB0
   ```
