@@ -78,7 +78,9 @@ This likely means that the build script is finding the wrong `libclang.so` (or `
 export LIBCLANG_PATH=/path/to/xtensa-esp32-elf-clang/lib/libclang.so.12
 ```
 
-(Replace the path above with the correct path on your system.)
+Replace the path above with the correct path on your system. Builds of LLVM project are available at [espressif/llvm-project](https://github.com/espressif/llvm-project/releases)
+
+For more details about LLVM binary artifact read Quick start section.
 
 ## Building from scratch
 
@@ -115,7 +117,7 @@ The Xtensa target support can be verified by printing the supported target archi
 ```
 % /usr/local/xtensa/llvm/bin/llc --version
 LLVM (http://llvm.org/):
-  LLVM version 11.0.0
+  LLVM version 12.0.1
   Optimized build.
   Default target: x86_64-apple-darwin20.3.0
   Host CPU: cascadelake
