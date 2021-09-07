@@ -5,7 +5,7 @@ RUN apt update \
     && apt install -y vim nano
 
 # Dependency for Cargo first example
-RUN cargo install cargo-pio
+RUN cargo install cargo-pio ldproxy espflash
 
 COPY support/idf-rust-examples/entrypoint.sh /opt/esp/entrypoint.sh
 COPY support/idf-rust-examples/motd /etc/motd

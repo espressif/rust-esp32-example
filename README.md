@@ -12,7 +12,17 @@ First, install the ESP-IDF SDK as shown in the [Get Started](https://docs.espres
 
 To support the Xtensa instruction set, build and install custom LLVM and Rust toolchains as shown in the [Rust On Xtensa](docs/rust-on-xtensa.md) guide.
 
-Alternatively you might build the project in the container where image already contains pre-installed Rust and ESP-IDF:
+#### Podman/Docker image
+
+Alternatively you might build the project in the container where image already contains pre-installed Rust and ESP-IDF.
+
+Podman example with mapping multiple /dev/ttyUSB from host computer to the container:
+
+```
+podman run -it espressif/idf-rust-examples --device /dev/ttyUSB0 --device /dev/ttyUSB1
+```
+
+Docker (does not support flashing from container):
 
 ```
 docker run -it espressif/idf-rust-examples

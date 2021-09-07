@@ -5,15 +5,16 @@
 
 Available examples:
 
+* "cargo-first" approach
+  ```sh
+    cd /opt/rust-esp32-std-hello
+    cargo build
+    espflash /dev/ttyUSB0 target/xtensa-esp32-espidf/release/rust-esp32-std-hello
+    cargo pio espidf monitor -e release /dev/ttyUSB0
+  ```
+
 * "idf.py-first" approach - integration via CMake files
   ```sh
     cd /opt/rust-esp32-example
     idf.py build
   ```
-
-* "cargo-first" approach
-  ```sh
-    cd /opt/rust-esp32-std-hello
-    cargo build --release
-  ```
-
