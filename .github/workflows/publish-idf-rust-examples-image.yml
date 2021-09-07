@@ -1,4 +1,4 @@
-name: Publish idf-rust image on DockerHub
+name: Publish idf-rust-examples image on DockerHub
 
 on: workflow_dispatch
 
