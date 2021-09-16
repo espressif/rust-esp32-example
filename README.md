@@ -19,7 +19,7 @@ Alternatively you might build the project in the container where image already c
 Podman example with mapping multiple /dev/ttyUSB from host computer to the container:
 
 ```
-podman run -it espressif/idf-rust-examples --device /dev/ttyUSB0 --device /dev/ttyUSB1
+podman run --device /dev/ttyUSB0 --device /dev/ttyUSB1 -it espressif/idf-rust-examples
 ```
 
 Docker (does not support flashing from container):
