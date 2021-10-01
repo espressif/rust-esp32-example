@@ -102,3 +102,17 @@ To exit the monitor, press `Ctrl-]`.
 ```sh
 openocd -f board/esp32-wrover-kit-3.3v.cfg
 ```
+
+## Table of footprints
+
+Print the memory statistics of the project:
+
+```sh
+idf.py size-files
+```
+
+or in `json` format:
+
+```sh
+$IDF_PATH/tools/idf_size.py --files --json build/esp32-hello-rust.map
+```
