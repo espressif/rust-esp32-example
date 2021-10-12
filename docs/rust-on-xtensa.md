@@ -1,3 +1,7 @@
+# Deprecated
+
+Installation instructions moved to: [esp-rs/rust-build](https://github.com/esp-rs/rust-build)
+
 # Rust on ESP32 and ESP32-S series (Xtensa)
 
 Following instructions are specific for ESP32 and ESP32-S series based on Xtensa architecture.
