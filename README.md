@@ -10,7 +10,7 @@ First, install the ESP-IDF SDK as shown in the [Get Started](https://docs.espres
 
 ### ESP32 and ESP32-S series
 
-To support the Xtensa instruction set, build and install custom LLVM and Rust toolchains as shown in the [Rust On Xtensa](docs/rust-on-xtensa.md) guide.
+Installation instruction for Xtensa architecture is in project [esp-rs/rust-build](https://github.com/esp-rs/rust-build).
 
 #### Podman/Docker image
 
