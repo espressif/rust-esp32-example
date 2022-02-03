@@ -1,6 +1,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #![feature(asm)]
+#![cfg_attr(target_arch = "xtensa", feature(asm_experimental_arch))]
 
 #[cfg(not(feature = "std"))]
 use core::panic::PanicInfo;
