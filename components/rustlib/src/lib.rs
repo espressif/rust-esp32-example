@@ -1,7 +1,12 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
-#![feature(asm)]
-#![cfg_attr(target_arch = "xtensa", feature(asm_experimental_arch))]
+#![cfg_attr(not(version("1.59")), feature(asm))]
+#![cfg_attr(
+       all(version("1.58"), target_arch = "xtensa"),
+       feature(asm_experimental_arch)
+    )]
+#![feature(cfg_version)]
+use core::arch::asm;
 
 #[cfg(not(feature = "std"))]
 use core::panic::PanicInfo;
