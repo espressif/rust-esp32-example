@@ -12,6 +12,10 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_spi_flash.h"
+#include "esp_idf_version.h"
+#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 4, 0)
+#include "esp_chip_info.h"
+#endif
 
 #include "RustApi.h"
 
