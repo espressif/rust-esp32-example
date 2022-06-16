@@ -1,3 +1,9 @@
+# Deprecation warning
+
+Following example is suitable only for cases, where majority of logic is based on ESP-IDF, the example here using so called `idf first` approach.
+
+We **recomend `cargo first` approach** described at https://github.com/esp-rs . The approach is simpler and available templates supports Development Containers, GitPod and CodeSpaces.
+
 # Rust ESP32 Example
 
 An example project demonstrating integration with Rust for the ESP32-S2 and ESP32-C3 microcontrollers.
