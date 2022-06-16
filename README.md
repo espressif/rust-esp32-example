@@ -1,8 +1,8 @@
 # Deprecation warning
 
-Following example is suitable only for cases, where majority of logic is based on ESP-IDF, the example here using so called `idf first` approach.
+The following example is suitable only for cases where the majority of logic is based on ESP-IDF. The example here uses so-called `idf first` approach.
 
-We **recomend `cargo first` approach** described at https://github.com/esp-rs . The approach is simpler and available templates supports Development Containers, GitPod and CodeSpaces.
+We **recommend `cargo first` approach** described at https://github.com/esp-rs . The approach is simpler and available templates support Development Containers, GitPod, and CodeSpaces.
 
 # Rust ESP32 Example
 
