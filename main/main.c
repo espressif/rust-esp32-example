@@ -7,11 +7,13 @@
    CONDITIONS OF ANY KIND, either express or implied.
 */
 #include <stdio.h>
+#include <inttypes.h>
 #include "sdkconfig.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
-#include "esp_spi_flash.h"
+#include "esp_flash.h"
+#include "esp_err.h"
 #include "esp_idf_version.h"
 #if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(4, 4, 0)
 #include "esp_chip_info.h"
@@ -21,6 +23,8 @@
 
 void app_main(void)
 {
+    uint32_t flash_size;
+
     printf("Hello world!\n");
 
     /* Print chip information */
@@ -34,10 +38,11 @@ void app_main(void)
 
     printf("silicon revision %d, ", chip_info.revision);
 
-    printf("%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
+    ESP_ERROR_CHECK( esp_flash_get_size(NULL, &flash_size) );
+    printf("%"PRIu32"MB %s flash\n", flash_size / (1024 * 1024),
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
-    printf("Free heap: %d\n", esp_get_free_heap_size());
+    printf("Free heap: %"PRIu32"\n", esp_get_free_heap_size());
 
     int x = 2;
     int y = 3;
